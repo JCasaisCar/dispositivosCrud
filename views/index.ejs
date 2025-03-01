@@ -86,13 +86,19 @@
                     <input type="number" id="edit-precio" name="precio" required>
                     <label>Descripción:</label>
                     <textarea id="edit-descripcion" name="descripcion"></textarea>
-                    <label>Imagen:</label>
+
+                    <label>Imagen Actual:</label>
+                    <img id="edit-imagen-preview" src="" alt="Vista previa" width="100" style="display:none;">
+
+                    <label>Seleccionar Nueva Imagen:</label>
                     <input type="file" id="edit-imagen" name="imagen" accept="image/*">
+
                     <button type="submit" class="btn btn-primary">Actualizar</button>
                 </form>
             </div>
         </div>
     </div>
 </div>
+
 
 <%- include("partials/footer") %>

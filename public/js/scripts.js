@@ -8,29 +8,50 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-    // Capturar el evento de clic en los botones de edición
     document.querySelectorAll(".btn-editar").forEach(boton => {
         boton.addEventListener("click", async function () {
             const id = this.getAttribute("data-id");
 
             try {
-                // Obtener los datos del dispositivo desde la API
                 const respuesta = await fetch(`/dispositivos/${id}`);
                 const dispositivo = await respuesta.json();
 
-                // Rellenar el modal con los datos obtenidos
                 document.getElementById("edit-id").value = dispositivo._id;
                 document.getElementById("edit-marca").value = dispositivo.marca;
                 document.getElementById("edit-modelo").value = dispositivo.modelo;
                 document.getElementById("edit-precio").value = dispositivo.precio;
                 document.getElementById("edit-descripcion").value = dispositivo.descripcion || "";
 
-                // Ajustar la acción del formulario para enviar la actualización correctamente
+                // Si tiene imagen, mostrarla en la vista previa
+                const imagenPreview = document.getElementById("edit-imagen-preview");
+                if (dispositivo.imagen) {
+                    imagenPreview.src = `/uploads/${dispositivo.imagen}`;
+                    imagenPreview.style.display = "block";
+                } else {
+                    imagenPreview.style.display = "none";
+                }
+
+                // Ajustar la acción del formulario
                 document.getElementById("formEditar").action = `/dispositivos/${id}?_method=PUT`;
+
             } catch (error) {
                 console.error("❌ Error al obtener los datos del dispositivo:", error);
             }
         });
     });
-});
 
+    // Vista previa de la nueva imagen seleccionada en el input
+    document.getElementById("edit-imagen").addEventListener("change", function (event) {
+        const file = event.target.files[0];
+        const imagenPreview = document.getElementById("edit-imagen-preview");
+
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                imagenPreview.src = e.target.result;
+                imagenPreview.style.display = "block";
+            };
+            reader.readAsDataURL(file);
+        }
+    });
+});
