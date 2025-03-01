@@ -1,14 +1,70 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f8f9fa;
+:root {
+    --color-fondo: #1F2937; /* Azul Marino (fondo principal) */
+    --color-primario: #4A90E2; /* Cian Suave (botones primarios, enlaces) */
+    --color-secundario: #10B981; /* Verde Esmeralda (botones de acción) */
+    --color-resaltado: #EF4444; /* Rojo Coral (alertas, eliminar) */
+    --color-texto: #FFFFFF; /* Blanco (texto principal) */
+    --color-tarjeta: #E5E7EB; /* Gris Claro (fondos de tarjetas) */
 }
 
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+}
+
+/* Contenedor */
 .container {
     margin-top: 20px;
 }
 
+/* Imágenes */
 img {
     max-width: 100%;
     height: auto;
     border-radius: 5px;
+}
+
+/* Tarjetas y tablas */
+.table {
+    background-color: var(--color-tarjeta);
+    color: var(--color-fondo);
+    border-radius: 5px;
+    padding: 10px;
+}
+
+/* Botones */
+.btn-success {
+    background-color: var(--color-secundario);
+    border-color: var(--color-secundario);
+}
+
+.btn-warning {
+    background-color: var(--color-primario);
+    border-color: var(--color-primario);
+}
+
+.btn-danger {
+    background-color: var(--color-resaltado);
+    border-color: var(--color-resaltado);
+}
+
+/* Paginación */
+.pagination .page-item.active .page-link {
+    background-color: var(--color-primario);
+    border-color: var(--color-primario);
+}
+
+.pagination .page-link {
+    color: var(--color-primario);
+}
+
+/* Footer */
+footer {
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    text-align: center;
+    padding: 15px 0;
+    margin-top: 20px;
 }
