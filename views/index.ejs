@@ -9,7 +9,14 @@
 
     <table class="table">
         <thead>
-            <tr><th>Imagen</th><th>Marca</th><th>Modelo</th><th>Precio</th><th>Acciones</th></tr>
+            <tr>
+                <th>Imagen</th>
+                <th>Marca</th>
+                <th>Modelo</th>
+                <th>Precio</th>
+                <th>Descripción</th> <!-- Nueva columna -->
+                <th>Acciones</th>
+            </tr>
         </thead>
         <tbody>
             <% dispositivos.forEach(d => { %>
@@ -18,6 +25,7 @@
                     <td><%= d.marca %></td>
                     <td><%= d.modelo %></td>
                     <td><%= d.precio %>€</td>
+                    <td><%= d.descripcion ? d.descripcion : 'Sin descripción' %></td> <!-- Mostrar descripción -->
                     <td>
                         <button class="btn btn-warning btn-editar" data-id="<%= d._id %>" data-bs-toggle="modal" data-bs-target="#modalEditar">Editar</button>
                         <form action="/dispositivos/<%= d._id %>?_method=DELETE" method="POST" style="display:inline;">
@@ -28,6 +36,7 @@
             <% }) %>
         </tbody>
     </table>
+    
 
     <nav>
         <ul class="pagination">
