@@ -28,6 +28,7 @@ Para comenzar, clona el repositorio en tu máquina local:
 ```sh
 git clone https://github.com/tuusuario/dispositivos-crud.git
 cd dispositivos-crud
+```
 
 ### 2. Instala las dependencias
 
@@ -35,6 +36,7 @@ Instala todas las dependencias necesarias utilizando npm:
 
 ```sh
 npm install
+```
 
 ### 3. Configura las variables de entorno
 
@@ -47,6 +49,7 @@ SECRET_KEY=tu_clave_secreta
 PORT: El puerto en el que el servidor se ejecutará.
 DB_URI: La URI de tu base de datos MongoDB (asegúrate de tener MongoDB corriendo localmente o utilizar un servicio de MongoDB en la nube).
 SECRET_KEY: Una clave secreta para la sesión (puedes cambiarla a tu gusto).
+```
 
 ### 4. Inicia el servidor
 
@@ -54,6 +57,7 @@ Una vez que hayas configurado las variables de entorno y las dependencias, puede
 
 ```sh
 npm start
+```
 
 El servidor se ejecutará en el puerto 3000 o el puerto que hayas configurado en el archivo .env.
 
@@ -61,6 +65,7 @@ Accede a la aplicación a través de tu navegador en:
 
 ```sh
 http://localhost:3000
+```
 
 
 ## 📌 Funcionalidades
