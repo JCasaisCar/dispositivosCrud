@@ -1,48 +1,68 @@
+/* 🎨 Estilos Premium Mejorados */
 :root {
-    --color-fondo: #1F2937; /* Azul Marino (fondo principal) */
-    --color-primario: #4A90E2; /* Cian Suave (botones primarios, enlaces) */
-    --color-secundario: #10B981; /* Verde Esmeralda (botones de acción) */
-    --color-resaltado: #EF4444; /* Rojo Coral (alertas, eliminar) */
-    --color-texto: #FFFFFF; /* Blanco (texto principal) */
-    --color-tarjeta: #E5E7EB; /* Gris Claro (fondos de tarjetas) */
+    --color-fondo: #F8F9FA; /* Fondo claro elegante */
+    --color-primario: #1D4ED8; /* Azul Profesional */
+    --color-secundario: #10B981; /* Verde Esmeralda */
+    --color-resaltado: #DC2626; /* Rojo Intenso */
+    --color-texto: #111827; /* Negro Profundo */
+    --color-tarjeta: #FFFFFF; /* Blanco Puro */
+    --color-borde: #CBD5E1; /* Gris Claro */
 }
 
-/* Estilos generales */
+/* 📌 Estilos Generales */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
     background-color: var(--color-fondo);
     color: var(--color-texto);
 }
 
-/* Contenedor */
 .container {
-    margin-top: 20px;
+    margin-top: 30px;
 }
 
-/* Imágenes */
+/* 🖼 Imágenes */
 img {
     max-width: 100%;
     height: auto;
-    border-radius: 5px;
+    border-radius: 8px;
 }
 
-/* Tarjetas y tablas */
+/* 🔳 Tablas */
 .table {
     background-color: var(--color-tarjeta);
-    color: var(--color-fondo);
-    border-radius: 5px;
-    padding: 10px;
+    color: var(--color-texto);
+    border-radius: 8px;
+    overflow: hidden;
 }
 
-/* Botones */
+.table th {
+    background-color: var(--color-primario);
+    color: white;
+    text-align: center;
+}
+
+.table td {
+    vertical-align: middle;
+}
+
+/* 🟢 Botones */
 .btn-success {
     background-color: var(--color-secundario);
     border-color: var(--color-secundario);
 }
 
+.btn-success:hover {
+    background-color: #059669;
+}
+
 .btn-warning {
     background-color: var(--color-primario);
     border-color: var(--color-primario);
+    color: white;
+}
+
+.btn-warning:hover {
+    background-color: #1E40AF;
 }
 
 .btn-danger {
@@ -50,21 +70,146 @@ img {
     border-color: var(--color-resaltado);
 }
 
+.btn-danger:hover {
+    background-color: #B91C1C;
+}
+
 /* Paginación */
+.pagination .page-item {
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.pagination .page-item .page-link {
+    color: var(--color-texto); /* Asegurar que el texto sea visible */
+    background-color: var(--color-tarjeta); /* Color del fondo del botón */
+    border: 1px solid var(--color-borde);
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 8px 15px;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+}
+
 .pagination .page-item.active .page-link {
-    background-color: var(--color-primario);
+    background-color: var(--color-primario); /* Color del botón activo */
+    color: white;
     border-color: var(--color-primario);
 }
 
-.pagination .page-link {
+.pagination .page-link:hover {
+    background-color: var(--color-secundario); /* Color de hover */
+    color: white;
+}
+
+
+/* 📌 Navbar Mejorado */
+.navbar-custom {
+    background: linear-gradient(90deg, #1D4ED8, #10B981);
+    padding: 15px 0;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.navbar-custom .navbar-brand {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.navbar-custom .navbar-nav .nav-link {
+    color: white;
+    font-size: 1.1rem;
+    padding: 10px 15px;
+}
+
+.navbar-custom .navbar-nav .nav-link:hover {
+    color: var(--color-secundario);
+}
+
+/* 📌 Footer Mejorado */
+.footer-custom {
+    background-color: var(--color-primario);
+    color: white;
+    padding: 20px 0;
+}
+
+.footer-links a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    color: var(--color-secundario);
+}
+
+/* 🎨 Estilos para los Modales con Transparencia */
+.modal-content {
+    background: rgba(255, 255, 255, 0.7); /* Fondo con transparencia */
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Sombra elegante */
+    backdrop-filter: blur(10px); /* Efecto de desenfoque */
+}
+
+/* Encabezado del Modal */
+.modal-header {
+    border-bottom: none;
+    font-size: 1.3rem;
+    font-weight: bold;
     color: var(--color-primario);
 }
 
-/* Footer */
-footer {
-    background-color: var(--color-fondo);
+/* Botón de Cierre */
+.modal-header .btn-close {
+    font-size: 1.3rem;
+    color: var(--color-resaltado);
+    opacity: 0.8;
+}
+
+.modal-header .btn-close:hover {
+    opacity: 1;
+}
+
+/* Cajas de Entrada de Datos */
+.modal-body input,
+.modal-body select,
+.modal-body textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--color-borde);
+    border-radius: 8px;
+    font-size: 1rem;
     color: var(--color-texto);
-    text-align: center;
-    padding: 15px 0;
-    margin-top: 20px;
+    background: rgba(255, 255, 255, 0.8);
+}
+
+/* Sombra al hacer focus */
+.modal-body input:focus,
+.modal-body select:focus,
+.modal-body textarea:focus {
+    outline: none;
+    border: 1px solid var(--color-primario);
+    box-shadow: 0 0 5px rgba(29, 78, 216, 0.5);
+}
+
+/* Pie del Modal */
+.modal-footer {
+    border-top: none;
+    display: flex;
+    justify-content: center;
+}
+
+/* Botón de Guardar */
+.btn-primary {
+    background-color: var(--color-primario);
+    border-color: var(--color-primario);
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 12px 20px;
+    border-radius: 8px;
+    transition: background 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #1E40AF;
 }
