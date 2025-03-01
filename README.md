@@ -115,4 +115,4 @@ Este proyecto utiliza las siguientes dependencias:
 
 Puedes ver todas las dependencias en el archivo package.json.
 
-### 💡 ¡Sigue adelante y hazlo tuyo!
+## 💡 ¡Sigue adelante y hazlo tuyo!
