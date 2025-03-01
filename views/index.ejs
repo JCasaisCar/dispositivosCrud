@@ -1,57 +1,61 @@
 <%- include("partials/header") %>
+
 <div class="container">
-    <h1>Lista de Dispositivos Móviles</h1>
-    <a href="/dispositivos/nuevo" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalNuevo">Agregar Dispositivo</a>
+    <h1 class="text-center mt-3">Lista de Dispositivos Móviles</h1>
+    <div class="d-flex justify-content-between align-items-center">
+        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalNuevo">Agregar Dispositivo</button>
+    </div>
 
     <% if (mensaje) { %>
-        <div class="alert alert-info"><%= mensaje %></div>
+        <div class="alert alert-info mt-3"><%= mensaje %></div>
     <% } %>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Imagen</th>
-                <th>Marca</th>
-                <th>Modelo</th>
-                <th>Precio</th>
-                <th>Descripción</th> <!-- Nueva columna -->
-                <th>Acciones</th>
-            </tr>
-        </thead>
-        <tbody>
-            <% dispositivos.forEach(d => { %>
+    <div class="table-responsive mt-3">
+        <table class="table">
+            <thead>
                 <tr>
-                    <td><img src="/uploads/<%= d.imagen %>" width="50" height="50" alt="Imagen de <%= d.marca %>"></td>
-                    <td><%= d.marca %></td>
-                    <td><%= d.modelo %></td>
-                    <td><%= d.precio %>€</td>
-                    <td><%= d.descripcion ? d.descripcion : 'Sin descripción' %></td> <!-- Mostrar descripción -->
-                    <td>
-                        <button class="btn btn-warning btn-editar" data-id="<%= d._id %>" data-bs-toggle="modal" data-bs-target="#modalEditar">Editar</button>
-                        <form action="/dispositivos/<%= d._id %>?_method=DELETE" method="POST" style="display:inline;">
-                            <button type="submit" class="btn btn-danger">Eliminar</button>
-                        </form>
-                    </td>
+                    <th>Imagen</th>
+                    <th>Marca</th>
+                    <th>Modelo</th>
+                    <th>Precio</th>
+                    <th>Descripción</th>
+                    <th>Acciones</th>
                 </tr>
-            <% }) %>
-        </tbody>
-    </table>
-    
+            </thead>
+            <tbody>
+                <% dispositivos.forEach(d => { %>
+                    <tr>
+                        <td><img src="/uploads/<%= d.imagen %>" width="50" height="50" alt="Imagen de <%= d.marca %>"></td>
+                        <td><%= d.marca %></td>
+                        <td><%= d.modelo %></td>
+                        <td><%= d.precio %>€</td>
+                        <td><%= d.descripcion ? d.descripcion : 'Sin descripción' %></td>
+                        <td>
+                            <button class="btn btn-warning btn-editar" data-id="<%= d._id %>" data-bs-toggle="modal" data-bs-target="#modalEditar">Editar</button>
+                            <form action="/dispositivos/<%= d._id %>?_method=DELETE" method="POST" style="display:inline;">
+                                <button type="submit" class="btn btn-danger">Eliminar</button>
+                            </form>
+                        </td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </div>
 
     <nav>
-        <ul class="pagination">
+        <ul class="pagination justify-content-center">
             <% for (let i = 1; i <= totalPages; i++) { %>
                 <li class="page-item <%= page === i ? 'active' : '' %>">
                     <a class="page-link" href="/dispositivos?page=<%= i %>"><%= i %></a>
                 </li>
             <% } %>
         </ul>
-    </nav>    
+    </nav>
 </div>
 
 <!-- Modal para agregar -->
 <div class="modal fade" id="modalNuevo" tabindex="-1">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Agregar Dispositivo</h5>
@@ -60,16 +64,16 @@
             <div class="modal-body">
                 <form action="/dispositivos" method="POST" enctype="multipart/form-data">
                     <label>Marca:</label>
-                    <input type="text" name="marca" required>
+                    <input type="text" name="marca" class="form-control" required>
                     <label>Modelo:</label>
-                    <input type="text" name="modelo" required>
+                    <input type="text" name="modelo" class="form-control" required>
                     <label>Precio:</label>
-                    <input type="number" name="precio" required>
+                    <input type="number" name="precio" class="form-control" required>
                     <label>Descripción:</label>
-                    <textarea name="descripcion"></textarea>
+                    <textarea name="descripcion" class="form-control"></textarea>
                     <label>Imagen:</label>
-                    <input type="file" name="imagen" accept="image/*">
-                    <button type="submit" class="btn btn-primary">Guardar</button>
+                    <input type="file" name="imagen" accept="image/*" class="form-control">
+                    <button type="submit" class="btn btn-primary mt-3">Guardar</button>
                 </form>
             </div>
         </div>
@@ -108,6 +112,5 @@
         </div>
     </div>
 </div>
-
 
 <%- include("partials/footer") %>
