@@ -55,3 +55,14 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".btn-eliminar").forEach(boton => {
+        boton.addEventListener("click", function () {
+            const id = this.getAttribute("data-id");
+            document.getElementById("formEliminar").action = `/dispositivos/${id}?_method=DELETE`;
+        });
+    });
+});
+

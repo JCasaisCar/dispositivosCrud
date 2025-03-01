@@ -1,3 +1,4 @@
+
 <%- include("partials/header") %>
 
 <div class="container">
@@ -32,9 +33,7 @@
                         <td><%= d.descripcion ? d.descripcion : 'Sin descripción' %></td>
                         <td>
                             <button class="btn btn-warning btn-editar" data-id="<%= d._id %>" data-bs-toggle="modal" data-bs-target="#modalEditar">Editar</button>
-                            <form action="/dispositivos/<%= d._id %>?_method=DELETE" method="POST" style="display:inline;">
-                                <button type="submit" class="btn btn-danger">Eliminar</button>
-                            </form>
+                            <button class="btn btn-danger btn-eliminar" data-id="<%= d._id %>" data-bs-toggle="modal" data-bs-target="#modalEliminar">Eliminar</button>
                         </td>
                     </tr>
                 <% }) %>
@@ -113,4 +112,26 @@
     </div>
 </div>
 
+<!-- Modal para eliminar -->
+<div class="modal fade" id="modalEliminar" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-danger">Confirmar Eliminación</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body text-center">
+                <p>¿Estás seguro de que deseas eliminar este dispositivo?</p>
+            </div>
+            <div class="modal-footer">
+                <form id="formEliminar" method="POST">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-danger">Eliminar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
 <%- include("partials/footer") %>
+

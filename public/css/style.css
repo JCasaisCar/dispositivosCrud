@@ -10,13 +10,19 @@
 }
 
 /* 📌 Estilos Generales */
-body {
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
     font-family: 'Poppins', sans-serif;
     background-color: var(--color-fondo);
     color: var(--color-texto);
 }
 
+/* Contenedor Principal */
 .container {
+    flex: 1;
     margin-top: 30px;
 }
 
@@ -74,15 +80,15 @@ img {
     background-color: #B91C1C;
 }
 
-/* Paginación */
+/* 📍 Paginación */
 .pagination .page-item {
     border-radius: 5px;
     overflow: hidden;
 }
 
 .pagination .page-item .page-link {
-    color: var(--color-texto); /* Asegurar que el texto sea visible */
-    background-color: var(--color-tarjeta); /* Color del fondo del botón */
+    color: var(--color-texto);
+    background-color: var(--color-tarjeta);
     border: 1px solid var(--color-borde);
     font-size: 1rem;
     font-weight: bold;
@@ -92,50 +98,74 @@ img {
 }
 
 .pagination .page-item.active .page-link {
-    background-color: var(--color-primario); /* Color del botón activo */
+    background-color: var(--color-primario);
     color: white;
     border-color: var(--color-primario);
 }
 
 .pagination .page-link:hover {
-    background-color: var(--color-secundario); /* Color de hover */
+    background-color: var(--color-secundario);
     color: white;
 }
 
-
-/* 📌 Navbar Mejorado */
+/* 📌 Navbar Mejorado (Más fino y centrado) */
 .navbar-custom {
     background: linear-gradient(90deg, #1D4ED8, #10B981);
-    padding: 15px 0;
+    padding: 10px 0;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
 }
 
-.navbar-custom .navbar-brand {
+/* Alinear el texto del header en el centro */
+.navbar-brand {
     color: white;
     font-size: 1.5rem;
     font-weight: bold;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.navbar-nav {
+    display: flex;
+    align-items: center;
 }
 
 .navbar-custom .navbar-nav .nav-link {
     color: white;
-    font-size: 1.1rem;
-    padding: 10px 15px;
+    font-size: 1rem;
+    padding: 6px 10px;
 }
 
 .navbar-custom .navbar-nav .nav-link:hover {
     color: var(--color-secundario);
 }
 
-/* 📌 Footer Mejorado */
+/* 📌 Footer Pegado Abajo */
 .footer-custom {
     background-color: var(--color-primario);
     color: white;
-    padding: 20px 0;
+    padding: 15px 0;
+    text-align: center;
+    margin-top: auto;
+}
+
+/* Mapa del sitio en línea */
+.footer-custom .footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
 }
 
 .footer-links a {
     color: white;
     text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
 }
 
 .footer-links a:hover {
@@ -144,11 +174,11 @@ img {
 
 /* 🎨 Estilos para los Modales con Transparencia */
 .modal-content {
-    background: rgba(255, 255, 255, 0.7); /* Fondo con transparencia */
+    background: rgba(255, 255, 255, 0.7);
     border-radius: 12px;
     padding: 25px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Sombra elegante */
-    backdrop-filter: blur(10px); /* Efecto de desenfoque */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
 }
 
 /* Encabezado del Modal */
