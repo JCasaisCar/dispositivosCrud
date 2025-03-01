@@ -1,0 +1,23 @@
+<%- include("partials/header") %>
+<div class="container">
+    <h2>Editar Dispositivo</h2>
+    <form action="/dispositivos/<%= dispositivo._id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+        <label>Marca:</label>
+        <input type="text" name="marca" value="<%= dispositivo.marca %>" required>
+        
+        <label>Modelo:</label>
+        <input type="text" name="modelo" value="<%= dispositivo.modelo %>" required>
+        
+        <label>Precio:</label>
+        <input type="number" name="precio" value="<%= dispositivo.precio %>" required>
+        
+        <label>Descripción:</label>
+        <textarea name="descripcion"><%= dispositivo.descripcion %></textarea>
+
+        <label>Imagen:</label>
+        <input type="file" name="imagen" accept="image/*">
+
+        <button type="submit">Actualizar</button>
+    </form>
+</div>
+<%- include("partials/footer") %>

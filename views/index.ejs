@@ -1,0 +1,29 @@
+<%- include("partials/header") %>
+<div class="container">
+    <h1>Lista de Dispositivos Móviles</h1>
+    <a href="/dispositivos/nuevo" class="btn btn-success">Agregar Dispositivo</a>
+    <% if (mensaje) { %>
+        <div class="alert alert-info"><%= mensaje %></div>
+    <% } %>
+    <table class="table">
+        <thead>
+            <tr><th>Marca</th><th>Modelo</th><th>Precio</th><th>Acciones</th></tr>
+        </thead>
+        <tbody>
+            <% dispositivos.forEach(d => { %>
+                <tr>
+                    <td><%= d.marca %></td>
+                    <td><%= d.modelo %></td>
+                    <td><%= d.precio %>€</td>
+                    <td>
+                        <a href="/dispositivos/<%= d._id %>/editar" class="btn btn-warning">Editar</a>
+                        <form action="/dispositivos/<%= d._id %>?_method=DELETE" method="POST" style="display:inline;">
+                            <button type="submit" class="btn btn-danger">Eliminar</button>
+                        </form>
+                    </td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</div>
+<%- include("partials/footer") %>
