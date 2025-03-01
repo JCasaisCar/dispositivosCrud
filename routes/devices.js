@@ -17,20 +17,31 @@ router.get("/", async (req, res) => {
     try {
         const page = parseInt(req.query.page) || 1;
         const limit = 5;
+        const skip = (page - 1) * limit;
+
+        // Obtener total de dispositivos
+        const totalDispositivos = await Device.countDocuments();
+
+        // Obtener los dispositivos paginados
         const dispositivos = await Device.find()
-            .skip((page - 1) * limit)
+            .skip(skip)
             .limit(limit)
             .sort({ createdAt: -1 });
 
-        const mensaje = req.session.mensaje || "";
-        req.session.mensaje = "";
+        // Calculamos total de páginas
+        const totalPages = Math.ceil(totalDispositivos / limit);
 
-        res.render("index", { dispositivos, mensaje, page });
+        res.render("index", { dispositivos, mensaje: req.session.mensaje || "", page, totalPages });
+
+        // Limpiar el mensaje de sesión después de mostrarlo
+        req.session.mensaje = "";
     } catch (error) {
         console.error("❌ Error al obtener dispositivos:", error);
         res.status(500).send("Error al obtener los dispositivos");
     }
 });
+
+
 
 // Agregar nuevo dispositivo
 router.post("/", upload.single("imagen"), async (req, res) => {
