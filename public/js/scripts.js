@@ -1,28 +1,31 @@
 document.addEventListener("DOMContentLoaded", function () {
+
+    // Oculto los mensajes de alerta después de 3 segundos
     const mensajes = document.querySelectorAll(".alert");
     mensajes.forEach(mensaje => {
         setTimeout(() => {
             mensaje.style.display = "none";
         }, 3000);
     });
-});
 
-document.addEventListener("DOMContentLoaded", function () {
+    // Manejo el evento de clic en los botones de edición
     document.querySelectorAll(".btn-editar").forEach(boton => {
         boton.addEventListener("click", async function () {
             const id = this.getAttribute("data-id");
 
             try {
+                // Obtengo los datos del dispositivo desde el servidor
                 const respuesta = await fetch(`/dispositivos/${id}`);
                 const dispositivo = await respuesta.json();
 
+                // Lleno el formulario con los datos obtenidos
                 document.getElementById("edit-id").value = dispositivo._id;
                 document.getElementById("edit-marca").value = dispositivo.marca;
                 document.getElementById("edit-modelo").value = dispositivo.modelo;
                 document.getElementById("edit-precio").value = dispositivo.precio;
                 document.getElementById("edit-descripcion").value = dispositivo.descripcion || "";
 
-                // Si tiene imagen, mostrarla en la vista previa
+                // Manejo la vista previa de la imagen del dispositivo
                 const imagenPreview = document.getElementById("edit-imagen-preview");
                 if (dispositivo.imagen) {
                     imagenPreview.src = `/uploads/${dispositivo.imagen}`;
@@ -31,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     imagenPreview.style.display = "none";
                 }
 
-                // Ajustar la acción del formulario
+                // Ajusto la acción del formulario para la actualización
                 document.getElementById("formEditar").action = `/dispositivos/${id}?_method=PUT`;
 
             } catch (error) {
@@ -40,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // Vista previa de la nueva imagen seleccionada en el input
+    // Manejo la vista previa de la imagen al seleccionarla en el input
     document.getElementById("edit-imagen").addEventListener("change", function (event) {
         const file = event.target.files[0];
         const imagenPreview = document.getElementById("edit-imagen-preview");
@@ -54,20 +57,19 @@ document.addEventListener("DOMContentLoaded", function () {
             reader.readAsDataURL(file);
         }
     });
-});
 
-
-document.addEventListener("DOMContentLoaded", function () {
+    // Manejo el evento de clic en los botones de eliminar
     document.querySelectorAll(".btn-eliminar").forEach(boton => {
         boton.addEventListener("click", function () {
             const id = this.getAttribute("data-id");
             document.getElementById("formEliminar").action = `/dispositivos/${id}?_method=DELETE`;
         });
     });
-});
 
-document.getElementById("scrollToTop").addEventListener("click", function(e) {
-    e.preventDefault();
-    window.scrollTo({ top: 0, behavior: "smooth" });
-});
+    // Manejo el botón para volver arriba
+    document.getElementById("scrollToTop").addEventListener("click", function (e) {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    });
 
+});

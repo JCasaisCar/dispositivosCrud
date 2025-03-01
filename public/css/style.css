@@ -1,15 +1,15 @@
-/* 🎨 Estilos Premium Mejorados */
+/* Variables de colores */
 :root {
-    --color-fondo: #F8F9FA; /* Fondo claro elegante */
-    --color-primario: #1D4ED8; /* Azul Profesional */
-    --color-secundario: #10B981; /* Verde Esmeralda */
-    --color-resaltado: #DC2626; /* Rojo Intenso */
-    --color-texto: #111827; /* Negro Profundo */
-    --color-tarjeta: #FFFFFF; /* Blanco Puro */
-    --color-borde: #CBD5E1; /* Gris Claro */
+    --color-fondo: #F8F9FA;
+    --color-primario: #1D4ED8;
+    --color-secundario: #10B981;
+    --color-resaltado: #DC2626;
+    --color-texto: #111827;
+    --color-tarjeta: #FFFFFF;
+    --color-borde: #CBD5E1;
 }
 
-/* 📌 Estilos Generales */
+/* Estructura base del sitio */
 html, body {
     height: 100%;
     margin: 0;
@@ -20,20 +20,20 @@ html, body {
     color: var(--color-texto);
 }
 
-/* Contenedor Principal */
+/* Contenedor principal para mantener el footer pegado abajo */
 .container {
     flex: 1;
     margin-top: 30px;
 }
 
-/* 🖼 Imágenes */
+/* Estilos para imágenes */
 img {
     max-width: 100%;
     height: auto;
     border-radius: 8px;
 }
 
-/* 🔳 Tablas */
+/* Estilos de la tabla */
 .table {
     background-color: var(--color-tarjeta);
     color: var(--color-texto);
@@ -51,7 +51,7 @@ img {
     vertical-align: middle;
 }
 
-/* 🟢 Botones */
+/* Botones generales */
 .btn-success {
     background-color: var(--color-secundario);
     border-color: var(--color-secundario);
@@ -80,7 +80,7 @@ img {
     background-color: #B91C1C;
 }
 
-/* 📍 Paginación */
+/* Paginación */
 .pagination .page-item {
     border-radius: 5px;
     overflow: hidden;
@@ -108,7 +108,7 @@ img {
     color: white;
 }
 
-/* 📌 Navbar Mejorado (Más fino y centrado) */
+/* Navbar más fino y centrado */
 .navbar-custom {
     background: linear-gradient(90deg, #1D4ED8, #10B981);
     padding: 10px 0;
@@ -117,7 +117,7 @@ img {
     align-items: center;
 }
 
-/* Alinear el texto del header en el centro */
+/* Alineación del texto en el header */
 .navbar-brand {
     color: white;
     font-size: 1.5rem;
@@ -142,7 +142,7 @@ img {
     color: var(--color-secundario);
 }
 
-/* 📌 Footer Pegado Abajo */
+/* Footer siempre pegado abajo */
 .footer-custom {
     background-color: var(--color-primario);
     color: white;
@@ -151,7 +151,7 @@ img {
     margin-top: auto;
 }
 
-/* Mapa del sitio en línea */
+/* Mapa del sitio con links en línea */
 .footer-custom .footer-links {
     list-style: none;
     padding: 0;
@@ -172,7 +172,31 @@ img {
     color: var(--color-secundario);
 }
 
-/* 🎨 Estilos para los Modales con Transparencia */
+/* Estilos para el botón de volver arriba */
+#scrollToTop {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: var(--color-primario);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s ease;
+    cursor: pointer;
+}
+
+#scrollToTop:hover {
+    background: var(--color-secundario);
+}
+
+/* Estilos para los modales */
 .modal-content {
     background: rgba(255, 255, 255, 0.7);
     border-radius: 12px;
@@ -200,7 +224,7 @@ img {
     opacity: 1;
 }
 
-/* Cajas de Entrada de Datos */
+/* Campos de entrada dentro de los modales */
 .modal-body input,
 .modal-body select,
 .modal-body textarea {
@@ -213,7 +237,7 @@ img {
     background: rgba(255, 255, 255, 0.8);
 }
 
-/* Sombra al hacer focus */
+/* Efecto al enfocar los campos */
 .modal-body input:focus,
 .modal-body select:focus,
 .modal-body textarea:focus {
@@ -229,7 +253,7 @@ img {
     justify-content: center;
 }
 
-/* Botón de Guardar */
+/* Botón principal de los modales */
 .btn-primary {
     background-color: var(--color-primario);
     border-color: var(--color-primario);

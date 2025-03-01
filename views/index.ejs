@@ -1,8 +1,8 @@
-
 <%- include("partials/header") %>
 
 <div class="container">
     <h1 class="text-center mt-3">Lista de Dispositivos Móviles</h1>
+
     <div class="d-flex justify-content-between align-items-center">
         <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalNuevo">Agregar Dispositivo</button>
     </div>
@@ -52,7 +52,7 @@
     </nav>
 </div>
 
-<!-- Modal para agregar -->
+<!-- Modal para agregar un dispositivo -->
 <div class="modal fade" id="modalNuevo" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -64,14 +64,19 @@
                 <form action="/dispositivos" method="POST" enctype="multipart/form-data">
                     <label>Marca:</label>
                     <input type="text" name="marca" class="form-control" required>
+
                     <label>Modelo:</label>
                     <input type="text" name="modelo" class="form-control" required>
+
                     <label>Precio:</label>
                     <input type="number" name="precio" class="form-control" required>
+
                     <label>Descripción:</label>
                     <textarea name="descripcion" class="form-control"></textarea>
+
                     <label>Imagen:</label>
                     <input type="file" name="imagen" accept="image/*" class="form-control">
+
                     <button type="submit" class="btn btn-primary mt-3">Guardar</button>
                 </form>
             </div>
@@ -79,7 +84,7 @@
     </div>
 </div>
 
-<!-- Modal para editar -->
+<!-- Modal para editar un dispositivo -->
 <div class="modal fade" id="modalEditar" tabindex="-1">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -90,12 +95,16 @@
             <div class="modal-body">
                 <form id="formEditar" method="POST" enctype="multipart/form-data">
                     <input type="hidden" id="edit-id" name="id">
+
                     <label>Marca:</label>
                     <input type="text" id="edit-marca" name="marca" required>
+
                     <label>Modelo:</label>
                     <input type="text" id="edit-modelo" name="modelo" required>
+
                     <label>Precio:</label>
                     <input type="number" id="edit-precio" name="precio" required>
+
                     <label>Descripción:</label>
                     <textarea id="edit-descripcion" name="descripcion"></textarea>
 
@@ -112,7 +121,7 @@
     </div>
 </div>
 
-<!-- Modal para eliminar -->
+<!-- Modal de confirmación para eliminar un dispositivo -->
 <div class="modal fade" id="modalEliminar" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -134,4 +143,3 @@
 </div>
 
 <%- include("partials/footer") %>
-
