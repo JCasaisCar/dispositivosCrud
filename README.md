@@ -114,3 +114,5 @@ Este proyecto utiliza las siguientes dependencias:
 ### method-override: Middleware para simular otros métodos HTTP como PUT y DELETE.
 
 Puedes ver todas las dependencias en el archivo package.json.
+
+💡 ¡Sigue adelante y hazlo tuyo!
